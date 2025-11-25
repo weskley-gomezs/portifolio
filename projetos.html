@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio completo de projetos, sites, apps e soluções digitais criados por Weskley Gomes.">
+    <meta name="keywords" content="Weskley Gomes, Projetos, Portfólio, Sites, SaaS, Landing Pages, IA, Automação">
+    <meta name="author" content="Weskley Gomes">
+    <title>Projetos | Weskley Gomes</title>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Projetos | Weskley Gomes">
+    <meta property="og:description" content="Portfólio completo de projetos, sites, apps e soluções digitais criados por Weskley Gomes.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/39ff14?text=Projetos+Weskley+Gomes">
+    <meta property="og:url" content="https://weskleygomes.com/projetos.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon personalizado com WK -->
+    <link rel="icon" href="img/logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           VARIAVEIS E RESET (CSS3)
+           ========================================= */
+        :root {
+            --bg-color: #050505;
+            --bg-secondary: #111111;
+            --card-bg: #1a1a1a;
+            --neon-green: #39ff14;
+            --neon-dim: rgba(57, 255, 20, 0.1);
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --transition: all 0.3s ease;
+            --font-main: 'Inter', sans-serif;
+            --font-tech: 'Orbitron', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 100px; /* Espaço para a barra inferior fixa */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-tech);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Utilitários de Animação (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* =========================================
+           HEADER & MENU
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: center; /* Centralizar logo */
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% {
+                text-shadow: 0 0 5px var(--neon-green);
+            }
+            100% {
+                text-shadow: 0 0 15px var(--neon-green), 0 0 20px var(--neon-dim);
+            }
+        }
+        
+        .logo span { color: var(--neon-green); }
+
+        /* =========================================
+           MENU INFERIOR FIXO
+           ========================================= */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px 20px 0 0;
+            padding: 15px 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .nav-item:hover {
+            background: rgba(57, 255, 20, 0.1);
+        }
+
+        .nav-item.active {
+            color: var(--neon-green);
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+        }
+
+        .nav-text {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero-projects {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #0f1f0f 0%, var(--bg-color) 70%);
+            margin-top: 60px;
+        }
+
+        /* Efeito de Grid no fundo */
+        .hero-projects::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .hero-projects h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+            font-family: var(--font-tech);
+            letter-spacing: 1px;
+        }
+
+        .hero-projects h1 span {
+            color: var(--neon-green);
+            text-shadow: 0 0 20px var(--neon-dim);
+        }
+
+        .hero-projects p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================
+           SECTIONS GERAL
+           ========================================= */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+        .section-title span { border-bottom: 3px solid var(--neon-green); }
+
+        /* =========================================
+           FILTROS
+           ========================================= */
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-tech);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--neon-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--neon-dim);
+        }
+
+        /* =========================================
+           PORTFOLIO
+           ========================================= */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-green);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #222;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .card-img img { transform: scale(1.1); }
+
+        .card-content { padding: 25px; position: relative; z-index: 2; }
+        .card-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .card-content p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--neon-green);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .btn-small {
+            font-size: 0.85rem;
+            color: var(--neon-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-small i { transition: transform 0.3s; }
+        .btn-small:hover i { transform: translateX(5px); }
+
+        /* =========================================
+           CTA FINAL
+           ========================================= */
+        .cta-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://placehold.co/1200x400/000000/111111?text=Tech+BG');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-slogan {
+            margin-top: 20px;
+            color: var(--neon-green);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #1ebd59;
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0.6);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: black;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer-quote {
+            color: var(--neon-green);
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+        }
+        .social-links a:hover { color: var(--neon-green); }
+
+        /* =========================================
+           BOTÃO WHATSAPP MOBILE FIXO
+           ========================================= */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 80px; /* Ajustado para não sobrepor o menu inferior */
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* =========================================
+           RESPONSIVO
+           ========================================= */
+        @media (max-width: 768px) {
+            .hero-projects h1 { font-size: 2.5rem; }
+            .cta-content h2 { font-size: 2rem; }
+            .whatsapp-fixed { 
+                display: flex; 
+                animation: pulse 2s infinite;
+            }
+            
+            /* Menu mobile - apenas ícones */
+            .nav-text {
+                display: none;
+            }
+            
+            .bottom-nav {
+                padding: 12px 5%;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+            }
+            
+            .nav-icon {
+                font-size: 1.4rem;
+            }
+            
+            .filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-text {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">&lt;Weskley<span>Gomes</span>/&gt;</div>
+    </header>
+
+    <!-- Menu Inferior Fixo -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-text">Home</span>
+        </a>
+        <a href="index.html#about" class="nav-item">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="nav-text">Quem Sou</span>
+        </a>
+        <a href="projetos.html" class="nav-item active">
+            <i class="fas fa-briefcase nav-icon"></i>
+            <span class="nav-text">Portfólio</span>
+        </a>
+        <a href="index.html#services" class="nav-item">
+            <i class="fas fa-cogs nav-icon"></i>
+            <span class="nav-text">Serviços</span>
+        </a>
+        <a href="index.html#contact" class="nav-item">
+            <i class="fas fa-envelope nav-icon"></i>
+            <span class="nav-text">Contato</span>
+        </a>
+    </nav>
+
+    <section class="hero-projects" id="hero">
+        <h1 class="reveal">Meus <span>Projetos</span></h1>
+        <p class="reveal">Explore o que já construí para marcas, negócios e ideias.</p>
+    </section>
+
+    <section id="portfolio">
+        <div class="filters reveal">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="site">Sites</button>
+            <button class="filter-btn" data-filter="saas">SaaS / Apps</button>
+            <button class="filter-btn" data-filter="landing">Landing Pages</button>
+            <button class="filter-btn" data-filter="ia">IA / Automação</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Projeto 1 -->
+            <div class="project-card reveal" data-category="saas">
+                <div class="card-img">
+                    <img src="img/saas.png" alt="Projeto SaaS">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#SaaS</span>
+                        <span class="tag">#Dashboard</span>
+                        <span class="tag">#IA</span>
+                    </div>
+                    <h3>Colégio Reação SaaS Dashboard</h3>
+                    <p>Plataforma de gestão institucional personalizado para o Colégio Reação.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="project-card reveal" data-category="site">
+                <div class="card-img">
+                    <img src="img/colegioreacao.png" alt="Projeto Site">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#Site</span>
+                        <span class="tag">#Institucional</span>
+                        <span class="tag">#IA</span>
+                    </div>
+                    <h3>Site Colégio Reação</h3>
+                    <p>Site desenvolvido com IA e alguns trabalhos manuais.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="project-card reveal" data-category="landing">
+                <div class="card-img">
+                    <img src="img/estetica.png" alt="Projeto LP">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#LandingPage</span>
+                        <span class="tag">#Conversão</span>
+                        <span class="tag">#Performance</span>
+                    </div>
+                    <h3>Landing Page estética</h3>
+                    <p>Página de alta conversão para clinicas de estética.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="project-card reveal" data-category="landing">
+                <div class="card-img">
+                    <img src="img/cilios.png" alt="landing cilios">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#Lading</span>
+                        <span class="tag">#Site</span>
+                        <span class="tag">#Vendas</span>
+                    </div>
+                    <h3>LadingPage para profissional em cílios</h3>
+                    <p>Pagina desenvolvida para empreendedoras que prestam serviços de estética.</p>
+                    <a href="https://weskley-gomezs.github.io/cilios/" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 5 -->
+            <div class="project-card reveal" data-category="saas">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto App">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#App</span>
+                        <span class="tag">#Mobile</span>
+                        <span class="tag">#ReactNative</span>
+                    </div>
+                    <h3>App de Gestão Financeira</h3>
+                    <p>Aplicativo móvel para controle de finanças pessoais.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 6 -->
+            <div class="project-card reveal" data-category="site">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto E-commerce">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#E-commerce</span>
+                        <span class="tag">#LojaVirtual</span>
+                        <span class="tag">#WordPress</span>
+                    </div>
+                    <h3>Loja Virtual Premium</h3>
+                    <p>E-commerce completo com sistema de pagamentos integrado.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 7 -->
+            <div class="project-card reveal" data-category="landing">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto LP 2">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#LandingPage</span>
+                        <span class="tag">#Conversão</span>
+                        <span class="tag">#SEO</span>
+                    </div>
+                    <h3>LP para Consultoria</h3>
+                    <p>Landing page otimizada para captação de leads qualificados.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 8 -->
+            <div class="project-card reveal" data-category="ia">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto Chatbot">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#IA</span>
+                        <span class="tag">#Chatbot</span>
+                        <span class="tag">#Automação</span>
+                    </div>
+                    <h3>Chatbot Inteligente</h3>
+                    <p>Assistente virtual com processamento de linguagem natural.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 9 -->
+            <div class="project-card reveal" data-category="saas">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto CRM">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#SaaS</span>
+                        <span class="tag">#CRM</span>
+                        <span class="tag">#Dashboard</span>
+                    </div>
+                    <h3>Sistema CRM Personalizado</h3>
+                    <p>Plataforma de gestão de relacionamento com cliente.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 10 -->
+            <div class="project-card reveal" data-category="site">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto Blog">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#Blog</span>
+                        <span class="tag">#Conteúdo</span>
+                        <span class="tag">#WordPress</span>
+                    </div>
+                    <h3>Blog Profissional</h3>
+                    <p>Plataforma de conteúdo com design responsivo e otimizado.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 11 -->
+            <div class="project-card reveal" data-category="landing">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto LP 3">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#LandingPage</span>
+                        <span class="tag">#Evento</span>
+                        <span class="tag">#Inscrições</span>
+                    </div>
+                    <h3>LP para Evento Online</h3>
+                    <p>Página de captação para webinar com alta conversão.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Projeto 12 -->
+            <div class="project-card reveal" data-category="ia">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/1a1a1a/39ff14?text=Em+breve" alt="Projeto Análise">
+                </div>
+                <div class="card-content">
+                    <div class="project-tags">
+                        <span class="tag">#IA</span>
+                        <span class="tag">#Análise</span>
+                        <span class="tag">#Dados</span>
+                    </div>
+                    <h3>Plataforma de Análise de Dados</h3>
+                    <p>Sistema de análise preditiva com machine learning.</p>
+                    <a href="#" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-content reveal">
+            <h2>Pronto para criar algo poderoso também?</h2>
+            <br>
+            <a href="https://wa.me/556181535040" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp Agora
+            </a>
+            <p class="cta-slogan">Tecnologia feita para vender — não só para aparecer.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-quote">"Construo tecnologia que gera vendas — não só sites bonitos."</p>
+        <p>&copy; 2025 Weskley Gomes. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão WhatsApp Mobile Fixo -->
+    <a href="https://wa.me/556181535040" class="whatsapp-fixed">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </a>
+
+    <script>
+        // Animação ao Scroll (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1 // Ativa quando 10% do elemento aparece
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Scroll suave para as seções
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Filtro de projetos
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adiciona active class ao botão clicado
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filtra os projetos
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
