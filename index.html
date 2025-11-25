@@ -440,6 +440,39 @@
         .btn-small:hover i { transform: translateX(5px); }
 
         /* =========================================
+           BOTÃO VER MAIS PROJETOS
+           ========================================= */
+        .btn-more-projects-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .btn-more-projects {
+            padding: 15px 40px;
+            background-color: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: var(--font-tech);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 0 15px var(--neon-dim);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-more-projects:hover {
+            background-color: var(--neon-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 30px var(--neon-green);
+        }
+
+        /* =========================================
            SERVIÇOS
            ========================================= */
         .services { background-color: var(--bg-secondary); }
@@ -693,7 +726,7 @@
         <div class="hero-badges reveal">
             <div class="badge">
                 <i class="fas fa-check-circle"></i>
-                +50 projetos entregues
+                +5 projetos entregues
             </div>
             <div class="badge">
                 <i class="fas fa-brain"></i>
@@ -744,15 +777,15 @@
             
             <div class="stats">
                 <div class="stat-item">
-                    <h3>+50</h3>
+                    <h3>+5</h3>
                     <p>Projetos</p>
                 </div>
                 <div class="stat-item">
-                    <h3>+15k</h3>
+                    <h3>+1k</h3>
                     <p>Leads Gerados</p>
                 </div>
                 <div class="stat-item">
-                    <h3>+200%</h3>
+                    <h3>+150%</h3>
                     <p>Conversão Média</p>
                 </div>
             </div>
@@ -812,6 +845,13 @@
                     <a href="https://weskley-gomezs.github.io/estetica/" class="btn-small">Ver Projeto <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
+        </div>
+
+        <!-- Botão "Ver Mais Projetos" adicionado -->
+        <div class="btn-more-projects-container reveal">
+            <a href="projetos.html" class="btn-more-projects">
+                Ver Mais Projetos <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
@@ -901,11 +941,6 @@
 
     <footer>
         <p class="footer-quote">"Construo tecnologia que gera vendas — não só sites bonitos."</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
         <p>&copy; 2025 Weskley Gomes. Todos os direitos reservados.</p>
     </footer>
 
